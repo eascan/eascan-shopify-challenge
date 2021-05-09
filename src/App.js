@@ -33,12 +33,10 @@ function App() {
       <Header />
       <Search searchVal={search} setSearchVal={setSearch} />
 
-      <div>
-        <Heading title={"Results"} />
-        <div className="flex flex-nowrap overflow-x-scroll scrollbar-hide w-screen">
-          <Results movies={movies} />
-        </div>
-      </div>
+      <Heading title={"Results"} />
+
+      <Results movies={movies} />
+
       {/* Nominations */}
     </div>
   );
