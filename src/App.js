@@ -4,7 +4,6 @@ import Header from "./components/Header";
 
 import Search from "./components/Search";
 import Results from "./components/Results";
-import Heading from "./components/Heading";
 
 console.log("API KEY:", process.env.REACT_APP_API_KEY);
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -14,14 +13,20 @@ function App() {
   const [search, setSearch] = useState("");
 
   const getMovies = async (search) => {
-    const requestURL = `http://www.omdbapi.com/?s=${search}&apikey=${API_KEY}`;
+    let pagesCount = 3;
+    let movies = [];
+    for (let i = 1; i <= pagesCount; i++) {
+      let requestURL = `http://www.omdbapi.com/?s=${search}&page=${i}&apikey=${API_KEY}`;
 
-    const request = await fetch(requestURL);
-    const response = await request.json();
-
-    if (response.Search) {
-      setMovies(response.Search);
+      let request = await fetch(requestURL);
+      let response = await request.json();
+      console.log(response);
+      if (response.Search) {
+        movies = movies.concat(response.Search);
+      }
     }
+
+    setMovies(movies);
   };
 
   useEffect(() => {
@@ -32,8 +37,6 @@ function App() {
     <div className="App">
       <Header />
       <Search searchVal={search} setSearchVal={setSearch} />
-
-      <Heading title={"Results"} />
 
       <Results movies={movies} />
 

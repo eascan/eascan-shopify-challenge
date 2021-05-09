@@ -1,0 +1,9 @@
+.thumbnail__text {
+  /* word-wrap: break-word; */
+}
+
+@media screen and (min-width: 376px) {
+  .thumbnail__result:hover {
+    transform: scale(1.1);
+  }
+}
