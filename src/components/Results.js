@@ -1,13 +1,22 @@
 import Thumbnail from "./Thumbnail";
+import {PlusCircleIcon} from "@heroicons/react/outline";
 import "./Results.css";
 
-function Results({movies}) {
+function Results({movies, handleClick}) {
   return (
-    <div className="flex whitespace-nowrap overflow-x-auto overflow-y-visible scrollbar-hide w-full px-5 my-10 ">
-      {movies.map((movie) => (
-        <Thumbnail key={movie.imdbID} movie={movie} />
-      ))}
-    </div>
+    <>
+      <h2 className="px-8 pt-10 mb-10 font-bold text-xl">Results</h2>
+      <div className="flex whitespace-nowrap overflow-x-auto overflow-y-visible scrollbar-hide w-full px-5 ">
+        {movies.map((movie) => (
+          <Thumbnail
+            key={movie.imdbID}
+            movie={movie}
+            handleClick={handleClick}
+            Icon={PlusCircleIcon}
+          />
+        ))}
+      </div>
+    </>
   );
 }
 

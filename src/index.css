@@ -11,6 +11,10 @@
     @apply bg-[#06202A] text-gray-300;
   }
 
+  .nominations__bg {
+    @apply bg-[#172b33];
+  }
+
   h1 {
     @apply font-title;
   }

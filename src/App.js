@@ -1,16 +1,31 @@
 import "./App.css";
 import {useEffect, useState} from "react";
+
 import Header from "./components/Header";
 
 import Search from "./components/Search";
 import Results from "./components/Results";
+import Nominated from "./components/Nominated";
 
-console.log("API KEY:", process.env.REACT_APP_API_KEY);
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 function App() {
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
+  const [nominated, setNominated] = useState([]);
+
+  const nominateMovie = (movie) => {
+    const nominatedList = [...nominated, movie];
+    setNominated(nominatedList);
+  };
+
+  const removeNomination = (movie) => {
+    const adjustedNominatedList = nominated.filter(
+      (nominatedMovie) => nominatedMovie.imdbID !== movie.imdbID
+    );
+
+    setNominated(adjustedNominatedList);
+  };
 
   const getMovies = async (search) => {
     let pagesCount = 3;
@@ -38,9 +53,9 @@ function App() {
       <Header />
       <Search searchVal={search} setSearchVal={setSearch} />
 
-      <Results movies={movies} />
+      <Results movies={movies} handleClick={nominateMovie} />
 
-      {/* Nominations */}
+      <Nominated movies={nominated} handleClick={removeNomination} />
     </div>
   );
 }
