@@ -2,7 +2,7 @@ import "./NominatedThumbNail.css";
 
 function NominatedThumbNail({movie, handleClick, Icon}) {
   return (
-    <div className="thumbnail__nominated pl-5 pt-10 pb-10 group cursor-pointer transition duration-300 ease-in w-96 h-96 md:hover:z-50 relative ml-auto mr-auto ">
+    <div className="thumbnail__nominated pl-5 pt-10 pb-10 group cursor-pointer transition duration-300 ease-in w-96 h-96 md:hover:z-40 relative ml-auto mr-auto ">
       <img
         className="h-full w-3/4 ml-auto mr-auto shadow-md"
         src={movie.Poster}

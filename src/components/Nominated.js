@@ -6,7 +6,7 @@ function Nominated({movies, handleClick}) {
   return (
     <>
       <h2 className="px-8 font-bold text-xl text-center mt-8">Nominations</h2>
-      <div className="nominations__bg px-5 my-10 sm:grid md:grid-cols-2 xl:grid-cols-3 3xl:flex flex-wrap justify-center items-center ">
+      <div className="nominations__bg  px-5 mt-10 sm:grid md:grid-cols-2 xl:grid-cols-3 3xl:flex flex-wrap justify-center items-center h-full">
         {movies &&
           movies.map((movie) => (
             <NominatedThumbNail
