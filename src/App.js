@@ -19,8 +19,6 @@ function App() {
   const [nominated, setNominated] = useState([]);
   const [alertMode, setAlertMode] = useState("false");
 
-  // const [nominationBtn, setNominationBtn] = useState("false");
-
   const nominateMovie = (movie) => {
     if (nominated.length === 5) {
       setAlertMode(TRUE);
@@ -45,11 +43,11 @@ function App() {
     let pagesCount = 3;
     let movies = [];
     for (let i = 1; i <= pagesCount; i++) {
-      let requestURL = `http://www.omdbapi.com/?s=${search}&page=${i}&apikey=${API_KEY}`;
+      let requestURL = `https://www.omdbapi.com/?s=${search}&page=${i}&apikey=${API_KEY}`;
 
       let request = await fetch(requestURL);
       let response = await request.json();
-      console.log(response);
+
       if (response.Search) {
         movies = movies.concat(response.Search);
       }
