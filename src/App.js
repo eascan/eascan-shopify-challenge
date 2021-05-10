@@ -14,7 +14,6 @@ const FALSE = "false";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 function App() {
-  const localData = localStorage.getItem("nominatedMovies");
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
   const [nominated, setNominated] = useState([]);
@@ -62,8 +61,9 @@ function App() {
   //checking localdata on load
 
   useEffect(() => {
-    if (localData) {
-      setNominated(JSON.parse(localData));
+    const localDataObj = localStorage.getItem("nominatedMovies");
+    if (localDataObj) {
+      setNominated(JSON.parse(localDataObj));
     }
   }, []);
 

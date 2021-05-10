@@ -1,6 +1,5 @@
 import {XCircleIcon} from "@heroicons/react/outline";
 import NominatedThumbNail from "./NominatedThumbNail";
-import Thumbnail from "./Thumbnail";
 
 function Nominated({movies, handleClick}) {
   return (
