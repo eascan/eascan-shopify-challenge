@@ -1,5 +1,9 @@
 # Shopify fall challenge submission
 
+## Demo
+
+[Demo](https://edwardascan-shopify-challenge.vercel.app/)
+
 ## Features
 
 This application allows the user to search for any movie title, and nominate any movie up for the Shoppies awards.
